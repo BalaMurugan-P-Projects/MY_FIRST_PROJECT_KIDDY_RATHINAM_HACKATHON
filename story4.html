@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Futuristic Video Player 2050</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+            color: #00ffcc;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 1000px;
+        }
+
+        /* Holographic Video Container */
+        .video-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.5), 0 0 100px rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            border: 2px solid #00ffcc;
+            overflow: hidden;
+            animation: hologram 5s infinite alternate;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes hologram {
+            0% { box-shadow: 0 0 50px rgba(0, 255, 255, 0.5), 0 0 100px rgba(0, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 70px rgba(0, 255, 255, 0.7), 0 0 120px rgba(0, 255, 255, 0.5); }
+            100% { box-shadow: 0 0 50px rgba(0, 255, 255, 0.5), 0 0 100px rgba(0, 255, 255, 0.3); }
+        }
+
+        /* Video Element */
+        video {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+            transform: translateZ(50px);
+        }
+
+        /* Futuristic Controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid #00ffcc;
+        }
+
+        .controls button {
+            background: linear-gradient(45deg, #00ffcc, #00b3ff);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #000;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .controls button:hover {
+            transform: scale(1.1) translateZ(20px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+
+        /* Holographic Title */
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+            animation: glow 2s infinite alternate;
+            transform: translateZ(100px);
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
+            100% { text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 60px #00ffcc; }
+        }
+
+        /* Dynamic Background Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #00ffcc;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) translateZ(0); }
+            50% { transform: translateY(-20px) translateX(20px) translateZ(50px); }
+            100% { transform: translateY(0) translateX(0) translateZ(0); }
+        }
+
+        /* 3D Interactive Background */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle, rgba(15, 12, 41, 0.8), rgba(48, 43, 99, 0.8));
+            transform-style: preserve-3d;
+            animation: rotateBackground 30s infinite linear;
+        }
+
+        @keyframes rotateBackground {
+            0% { transform: rotateY(0); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        /* Voice Command Interface */
+        .voice-command {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid #00ffcc;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .voice-command button {
+            background: linear-gradient(45deg, #ff00cc, #ff0066);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .voice-command button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 204, 0.7);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .video-container {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .controls button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 3D Interactive Background -->
+    <div class="background"></div>
+
+    <!-- Dynamic Background Particles -->
+    <div class="particles">
+        <div class="particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 30%; left: 50%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 70%; left: 80%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 50%; left: 10%; animation-delay: 3s;"></div>
+    </div>
+
+    <!-- Voice Command Interface -->
+    <div class="voice-command">
+        <button onclick="startVoiceCommand()">🎤 Voice Command</button>
+    </div>
+
+    <!-- Holographic Title -->
+    <h1>🎥 Infinity Futuristic Video Player 2050 🎥</h1>
+
+    <!-- Video Container -->
+    <div class="video-container">
+        <video id="video" controls>
+            <source src="sample.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="controls">
+            <button onclick="togglePlayPause()">▶ Play/Pause</button>
+            <button onclick="toggleMute()">🔊 Mute/Unmute</button>
+            <button onclick="toggleFullscreen()">📺 Fullscreen</button>
+        </div>
+    </div>
+
+    <script>
+        // Video Controls
+        const video = document.getElementById('video');
+
+        function togglePlayPause() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        function toggleMute() {
+            video.muted = !video.muted;
+        }
+
+        function toggleFullscreen() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            }
+        }
+
+        // Dynamic Particles
+        const particlesContainer = document.querySelector('.particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            particlesContainer.appendChild(particle);
+        }
+
+        // Voice Command Interface
+        function startVoiceCommand() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = (event) => {
+                const command = event.results[0][0].transcript.toLowerCase();
+                if (command.includes('play')) {
+                    video.play();
+                } else if (command.includes('pause')) {
+                    video.pause();
+                } else if (command.includes('mute')) {
+                    video.muted = true;
+                } else if (command.includes('unmute')) {
+                    video.muted = false;
+                } else if (command.includes('fullscreen')) {
+                    if (video.requestFullscreen) {
+                        video.requestFullscreen();
+                    }
+                }
+            };
+        }
+    </script>
+</body>
+</html>

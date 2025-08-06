@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Kids' Timeline</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; height: 100vh;
+        }
+        @keyframes gradientBG { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .start-button {
+            background: #ffcc00;
+            padding: 20px 40px;
+            border-radius: 50px;
+            border: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .timeline {
+            position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 70%; padding: 10px; display: none;
+        }
+        .timeline::before {
+            content: ''; position: absolute; left: 50%; width: 8px; height: 100%; background: #3498db; transform: translateX(-50%);
+        }
+        .event {
+            position: relative; width: 45%; padding: 15px; background: white; border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); text-align: center; margin: 40px 0; animation: float 4s ease-in-out infinite;
+        }
+        .event:nth-child(odd) { left: 0; text-align: right; }
+        .event:nth-child(even) { left: 50%; text-align: left; }
+        .line {
+            position: absolute; top: 50%; width: 20px; height: 20px; background: #e74c3c; border-radius: 50%; transform: translateY(-50%);
+        }
+        .event:nth-child(odd) .line { right: -10px; }
+        .event:nth-child(even) .line { left: -10px; }
+        .event button {
+            border: none; cursor: pointer; width: 120px; height: 120px; border-radius: 50%; overflow: hidden;
+        }
+        .event button img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;
+        }
+        .event button:hover img { transform: scale(1.1); }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .bottom-button {
+            background: #3498db;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+        .bottom-button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <button class="start-button" onclick="startTimeline()">Let's Start the Fun!</button>
+    <div class="timeline">
+        <div class="event">
+            <h3>Rj Gorilla</h3>
+            <div class="line"></div>
+            <a href="story.html">
+                <button>
+                    <img src="./src/IMG-20250221-WA0009.jpg" alt="Story Image">
+                </button>
+            </a>
+        </div>
+        
+        <div class="event"><h3>Mr Ant</h3><div class="line"></div><button><img src="./src/IMG-20250221-WA0011.jpg"></button></div>
+        <div class="event"><h3>Puddle And Splash</h3><div class="line"></div><button><img src="./src/picture1.jpg"></button></div>
+        <div class="event"><h3>Mr Ant 1</h3><div class="line"></div><button><img src="./src/picture2.jpg"></button></div>
+        <div class="event"><h3>Event 5</h3><div class="line"></div><button><img src="./src/picture3.jpg"></button></div>
+        <div class="event">
+            <button class="bottom-button">Click Me!</button>
+        </div>
+    </div>
+    <button class="bottom-button">Click Me!</button>
+    <script>
+        function startTimeline() {
+            const button = document.querySelector('.start-button');
+            const timeline = document.querySelector('.timeline');
+            button.style.animation = 'rotate 2s ease-in-out';
+            setTimeout(() => {
+                button.style.display = 'none';
+                timeline.style.display = 'block';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

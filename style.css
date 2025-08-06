@@ -1,0 +1,470 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.scrollElement {
+  position: absolute;
+  height: 6000px;
+  width: 100px;
+  top: 0;
+  z-index: 0;
+}
+
+.btn {
+  position: fixed;
+  bottom: 5%;
+  right: 0px;
+  transform: translateX(-50%);
+  border: 1px solid #fff;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.7em;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  transition: all .3s;
+  z-index: 11;
+}
+
+.btn_works {
+  left: 100px;
+  right: unset;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ffffff;
+  color: #1B1734;
+}
+
+.button-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.button-container a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all .5s;
+  color: #03e9f4;
+  background-color: transparent;
+  border: 1px solid #03e9f4;
+  border-radius: 5px;
+  transition: transform 0.3s ease; /* Add transition for zoom effect */
+}
+
+.button-container a:hover {
+  background-color: #03e9f4;
+  color: #fff;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+  transform: scale(1.1); /* Add zoom effect */
+}
+
+.button-container a span {
+  position: absolute;
+  display: block;
+}
+
+@keyframes btnAnimA {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+.button-container a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btnAnimA 1500ms linear infinite;
+  animation-fill-mode: backwards;
+  animation-play-state: running;
+}
+
+@keyframes btnAnimB {
+  0% {
+    top: -100%
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+.button-container a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btnAnimB 1500ms linear infinite;
+  animation-delay: 300ms;
+}
+
+@keyframes btnAnimC {
+  0% {
+    right: -100%;
+  }
+  50% {
+    right: 100%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+.button-container a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btnAnimC 1500ms linear infinite;
+  animation-delay: 600ms;
+}
+
+@keyframes btnAnimD {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+.button-container a span:nth-child(4) {
+  left: 0;
+  bottom: -100%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btnAnimD 1500ms linear infinite;
+  animation-delay: 900ms;
+}
+/* filepath: /c:/Users/Balamurugan P/OneDrive/Desktop/Project1/style.css */
+/* filepath: /c:/Users/Balamurugan P/OneDrive/Desktop/Project1/style.css */
+
+
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px; /* Top-left corner */
+  cursor: pointer;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  z-index: 1000;
+}
+
+.close-menu {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px; /* Same position as hamburger menu */
+  cursor: pointer;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  z-index: 1001;
+}
+
+.nav-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0; /* Opens from the left */
+  width: 200px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  padding-top: 60px; /* Push content down */
+  padding-left: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.nav-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 0;
+  font-size: 18px;
+}
+
+.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.get-started-container {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  transition: opacity 0.3s ease-in-out; /* Smooth hiding effect */
+}
+
+.get-started-button {
+  font-size: 28px;
+  padding: 20px 40px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+  transition: 0.3s ease-in-out;
+}
+
+.get-started-button:hover {
+  box-shadow: 0 0 30px rgba(76, 175, 80, 1), 0 0 40px rgba(76, 175, 80, 0.8);
+  transform: scale(1.1);
+}
+#chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 200px; /* Keep your existing size */
+  height: 200px;
+  cursor: pointer; /* Make it clickable */
+  transition: transform 0.2s ease-in-out;
+}
+
+#chatbot-button:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+/* Google Font */
+/* Google Font */
+
+
+/* General Styles */
+/* Marquee Animation for Title */
+/* Container to Center the Title */
+/* Container to Center the Title */
+/* Center the Title */
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  overflow: hidden;
+}
+
+/* Title Style */
+.title {
+  font-size: 120px; /* Bigger Font Size */
+  font-weight: bold;
+  color: #ff5722;
+  display: flex;
+  position: relative;
+  transform: translateY(30px); /* Move down slightly */
+}
+
+/* Individual Letter Styling */
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-100px) rotate(var(--rotate));
+  font-size: 120px; /* Bigger font size */
+  animation: drop 0.5s ease-in forwards, glow 2s infinite alternate ease-in-out, float 3s infinite ease-in-out;
+}
+
+/* Glow Animation */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #ff512f; }
+  50% { text-shadow: 0 0 40px #ff784f, 0 0 80px #ff3d00; }
+  100% { text-shadow: 0 0 10px #ff512f; }
+}
+
+/* Drop Animation */
+@keyframes drop {
+  0% { opacity: 0; transform: translateY(-100px) rotate(var(--rotate)); }
+  100% { opacity: 1; transform: translateY(0) rotate(var(--rotate)); }
+}
+
+/* Floating Up and Down */
+@keyframes float {
+  0% { transform: translateY(0) rotate(var(--rotate)); }
+  50% { transform: translateY(-10px) rotate(var(--rotate)); }
+  100% { transform: translateY(0) rotate(var(--rotate)); }
+}
+
+/* Animation Delays */
+.letter:nth-child(1) { animation-delay: 2s; }
+.letter:nth-child(2) { animation-delay: 2s; }
+.letter:nth-child(3) { animation-delay: 0.590s; }
+.letter:nth-child(4) { animation-delay: 2s; }
+.letter:nth-child(5) { animation-delay: 1s; }
+
+/* Glow Animation */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #ff512f; }
+  50% { text-shadow: 0 0 40px #ff784f, 0 0 80px #ff3d00; }
+  100% { text-shadow: 0 0 10px #ff512f; }
+}
+
+/* Drop Animation (One by One, Every 6s) */
+@keyframes drop {
+  0% { opacity: 0; transform: translateY(-100px); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Delayed Animation for Each Letter */
+.letter:nth-child(1) { animation-delay: 0.2s; }
+.letter:nth-child(2) { animation-delay: 0.4s; }
+.letter:nth-child(3) { animation-delay: 0.6s; }
+.letter:nth-child(4) { animation-delay: 0.8s; }
+.letter:nth-child(5) { animation-delay: 1s; }
+
+/* Repeating Drop Effect Every 6s */
+@keyframes repeatDrop {
+  0%, 90% { transform: translateY(0); }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+
+.letter {
+  animation: drop 0.5s ease-in forwards, glow 2s infinite alternate ease-in-out, repeatDrop 6s infinite;
+}
+
+/* Floating Up and Down */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); } /* Moves up */
+  100% { transform: translateY(0); }
+}
+
+.title {
+  animation: float 3s infinite ease-in-out;
+}
+
+/* Container to center the button */
+/* Container to center the button and move it slightly down */
+.get-started-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  position: relative;
+  margin-top: 250px; /* Moves the button down */
+}
+
+
+/* Fun Button Styling */
+.get-started-button {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(45deg, #ff4081, #ffea00, #00e676);
+  background-size: 200% 200%;
+  animation: bgMove 3s infinite alternate;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+/* Button Hover Effects */
+.get-started-button:hover {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 0 20px #ffea00;
+  animation: bounce 0.4s ease-in-out infinite alternate;
+}
+
+/* Button Text Glow */
+.get-started-button::after {
+  content: "✨";
+  position: absolute;
+  right: -20px;
+  top: -10px;
+  font-size: 24px;
+  animation: sparkle 1s infinite alternate;
+}
+
+/* Background Gradient Animation */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Bounce Effect */
+@keyframes bounce {
+  0% { transform: scale(1.1) translateY(0); }
+  100% { transform: scale(1.2) translateY(-5px); }
+}
+
+/* Sparkle Animation */
+@keyframes sparkle {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Floating Bubbles */
+.get-started-container::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  font-size: 30px;
+  animation: floatBubbles 4s infinite alternate;
+}
+
+.get-started-container::after {
+  content: "🎈";
+  position: absolute;
+  top: 70%;
+  right: 20%;
+  font-size: 30px;
+  animation: floatBubbles 4s infinite alternate-reverse;
+}
+
+/* Bubble Floating Animation */
+@keyframes floatBubbles {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(-20px); opacity: 1; }
+}
